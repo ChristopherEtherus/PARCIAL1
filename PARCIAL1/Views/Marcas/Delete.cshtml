@@ -1,0 +1,26 @@
+﻿@model PARCIAL1.Models.Marca
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Eliminar Marca</h2>
+<h3>¿Estas seguro de que quieres eliminar esta marca?</h3>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="MarcaId" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

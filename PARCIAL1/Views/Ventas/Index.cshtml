@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PARCIAL1.Models.Venta>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de Ventas</h1>
+<br />
+<p>
+    <a asp-action="Create" class="btn btn-success">Agregar Una Nueva Venta</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalVentas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vehiculo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalVentas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vehiculo.VehiculoId)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.VentaId" class="btn btn-primary">Editar</a> 
+                    <a asp-action="Details" asp-route-id="@item.VentaId" class="btn btn-primary">Detallar</a> 
+                    <a asp-action="Delete" asp-route-id="@item.VentaId" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
